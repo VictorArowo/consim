@@ -65,7 +65,7 @@ consim.parallel([1, 2, 3, 4, 5], async num => {
 
 ### BatchedSeries
 
-Executes all promises at the same time. Doesn't work reliably when the input array gets large as node isn't able to handle it.
+Batches array into array of arrays first, then executes each batch in parallel, but all batches in series. Useful when the input array contains a large number of elements.
 
 ```js
 consim.batchedSeries(arr, cb, elementsPerBatch);
