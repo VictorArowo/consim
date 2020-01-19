@@ -1,6 +1,6 @@
 {
   "name": "consim",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Utility that gives you more options when working with Promises",
   "main": "index.js",
   "scripts": {
