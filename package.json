@@ -1,15 +1,23 @@
 {
   "name": "consim",
   "version": "1.0.1",
-  "description": "Utility that gives you more options when working with Promises",
+  "description": "Consim is a small module for NodeJS, that contains utility functions which gives you more control over how asynchronous callback functions are invoked on an array.",
   "main": "index.js",
   "scripts": {
     "test": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VictorArowo/consim.git"
+    "url": "https://github.com/VictorArowo/consim.git"
   },
+  "keywords": [
+    "promise",
+    "javascript",
+    "node",
+    "async",
+    "series",
+    "parallel"
+  ],
   "author": "Victor Arowo",
   "license": "MIT",
   "bugs": {
