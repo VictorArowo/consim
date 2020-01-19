@@ -29,6 +29,7 @@ async function series(array, callback) {
  * @param {cb} callback
  */
 function parallel(array, callback) {
+  if (!Array.isArray(array)) throw new TypeError("Array expected!");
   return Promise.all(array.map(item => callback(item)));
 }
 
