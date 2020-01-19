@@ -1,6 +1,6 @@
 {
   "name": "consim",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Consim is a small module for NodeJS, that contains utility functions which gives you more control over how asynchronous callback functions are invoked on an array.",
   "main": "index.js",
   "scripts": {
