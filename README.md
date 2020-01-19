@@ -63,7 +63,7 @@ consim.parallel([1, 2, 3, 4, 5], async num => {
 });
 ```
 
-### BatchedSeries
+### Batched Series
 
 Batches array into array of arrays first, then executes each batch in parallel, but all batches in series. Useful when the input array contains a large number of elements.
 
