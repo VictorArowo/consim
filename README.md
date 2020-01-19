@@ -81,12 +81,16 @@ consim.batchedSeries(arr, cb, elementsPerBatch);
 const consim = require("consim");
 const axios = require("axios");
 
-consim.batchedSeries([1, 2, 3, 4, 5], async num => {
-  const res = await axios.get(
-    `https://jsonplaceholder.typicode.com/todos/${num}`
-  );
-  console.log(res.data);
-});
+consim.batchedSeries(
+  [1, 2, 3, 4, 5],
+  async num => {
+    const res = await axios.get(
+      `https://jsonplaceholder.typicode.com/todos/${num}`
+    );
+    console.log(res.data);
+  },
+  2
+);
 ```
 
 ## Tests
