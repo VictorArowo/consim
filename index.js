@@ -1,9 +1,19 @@
 const batch = require("./utils/batch");
-
-async function series(promiseArr, callback) {
-  if (!Array.isArray(promiseArr)) throw new TypeError("Array expected!");
+/**
+ * Callback to be executed for each element in the array
+ *
+ * @callback cb
+ * @param {*} element
+ */
+/**
+ * Executes promises in the input array in series i.e the next promise begins only after the preceding promisie is resolved or rejected
+ * @param {Array} array
+ * @param {cb} callback
+ */
+async function series(array, callback) {
+  if (!Array.isArray(array)) throw new TypeError("Array expected!");
   const response = [];
-  await promiseArr.reduce(async (acc, element) => {
+  await array.reduce(async (acc, element) => {
     await acc;
     const res = await callback(element);
     response.push(res);
@@ -13,14 +23,24 @@ async function series(promiseArr, callback) {
   return response;
 }
 
-function parallel(promiseArr, callback) {
-  return Promise.all(promiseArr.map(item => callback(item)));
+/**
+ * Executes promises in the input array in parallel i.e all promises are executed at the same time
+ * @param {Array} array
+ * @param {cb} callback
+ */
+function parallel(array, callback) {
+  return Promise.all(array.map(item => callback(item)));
 }
 
-async function batchedSeries(promiseArr, callback, elementsPerBatch) {
-  if (!Array.isArray(promiseArr)) throw new TypeError("Array expected!");
+/**
+ * Executes promises in the input array in parallel, and then in series
+ * @param {Array} array
+ * @param {cb} callback
+ */
+async function batchedSeries(array, callback, elementsPerBatch) {
+  if (!Array.isArray(array)) throw new TypeError("Array expected!");
   const response = [];
-  const batchArray = batch(promiseArr, elementsPerBatch);
+  const batchArray = batch(array, elementsPerBatch);
 
   return series(batchArray, async bch => {
     const res = await parallel(bch, callback);
