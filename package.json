@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/VictorArowo/consim/issues"
   },
-  "homepage": "https://github.com/VictorArowo/consim#readme"
+  "homepage": "https://github.com/VictorArowo/consim#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  }
 }
